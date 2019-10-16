@@ -5,6 +5,7 @@ import com.synway.blogserver.domain.Type;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
+import java.util.Map;
 
 public interface TypeMapper {
 
@@ -26,4 +27,7 @@ public interface TypeMapper {
 
     @Select("select count(1) from t_type where name = #{name}")
     int findTypeByName(String name);
+
+    @Select("select id,name from t_type")
+    List<Map<String,Object>> listAllType();
 }

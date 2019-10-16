@@ -95,5 +95,13 @@ public class TypeController {
         return JsonData.buildSuccess("删除成功");
     }
 
-
+    @GetMapping("/listAllType")
+    public JsonData listAllType(){
+        List<Map<String,Object>> list = typeService.listAllType();
+        if(list.size()>0){
+            return JsonData.buildSuccess(list,"分类数据加载成功");
+        }else{
+            return JsonData.buildError("分类数据加载失败");
+        }
+    }
 }
